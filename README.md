@@ -15,7 +15,7 @@ Open-source Laravel starter kit with **Filament**, **NativePHP SuperNative**, an
 | API auth | [`laravel/sanctum`](https://laravel.com/docs/sanctum) — wired, not demoed |
 | Mobile / SuperNative | [`nativephp/mobile`](https://nativephp.com/docs/mobile/4/getting-started/introduction) |
 | Native UI | [`nativephp/mobile-ui`](https://github.com/NativePHP/mobile-ui) |
-| Web UI (browser EDGE) | [`nativephp/mobile-web`](https://github.com/NativePHP/web-ui) (VCS: [NativePHP/web-ui](https://github.com/NativePHP/web-ui)) |
+| Web UI (browser EDGE) | [`nativephp/web-ui`](https://packagist.org/packages/nativephp/web-ui) |
 | MCP server | [`laravel/mcp`](https://laravel.com/docs/mcp) — no auth added |
 
 ## Requirements
@@ -75,4 +75,4 @@ See [Installation](https://nativephp.com/docs/mobile/4/getting-started/installat
 
 ## License
 
-MIT
+MIT © Bifrost Technologies LLC. See [LICENSE](LICENSE) and [CONTRIBUTING](CONTRIBUTING.md).

@@ -247,10 +247,34 @@ return [
     */
 
     'cleanup_exclude_files' => [
+        // Runtime temp / logs (defaults)
         'storage/framework/sessions',
         'storage/framework/cache',
         'storage/framework/testing',
         'storage/logs/laravel.log',
+
+        // Repo / docs / CI — not needed on device
+        'docs',
+        '.github',
+        '.junie',
+        'tests',
+        'phpunit.xml',
+        'vite.config.js',
+        'package.json',
+        'package-lock.json',
+        'AGENTS.md',
+        'CLAUDE.md',
+
+        // Filament admin + MCP + Sanctum API surface (web-only for this kit)
+        'app/Providers/Filament',
+        'app/Mcp',
+        'routes/ai.php',
+        'routes/api.php',
+        'config/sanctum.php',
+        'public/css/filament',
+        'public/js/filament',
+        'public/fonts/filament',
+        'public/fonts-manifest.dev.json',
     ],
 
     /*

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fad4ef9054dfc9e1434bd38a2478462d",
+    "content-hash": "2179d7f6522fc06fe5d2ba2f3afd5a0a",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -3943,24 +3943,26 @@
             "time": "2026-08-03T21:47:30+00:00"
         },
         {
-            "name": "nativephp/mobile-web",
-            "version": "dev-main",
+            "name": "nativephp/web-ui",
+            "version": "0.0.1-alpha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NativePHP/web-ui.git",
-                "reference": "ca9798e722b506dfc650cde4ef142d798b621364"
+                "reference": "25584f878d52bd58bceb0b1613a59d608867cdd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NativePHP/web-ui/zipball/ca9798e722b506dfc650cde4ef142d798b621364",
-                "reference": "ca9798e722b506dfc650cde4ef142d798b621364",
+                "url": "https://api.github.com/repos/NativePHP/web-ui/zipball/25584f878d52bd58bceb0b1613a59d608867cdd4",
+                "reference": "25584f878d52bd58bceb0b1613a59d608867cdd4",
                 "shasum": ""
             },
             "require": {
-                "nativephp/mobile": "^4.0",
+                "nativephp/mobile": "^4.4",
                 "php": "^8.2"
             },
-            "default-branch": true,
+            "require-dev": {
+                "laravel/pint": "^1.24"
+            },
             "type": "library",
             "extra": {
                 "laravel": {
@@ -3974,8 +3976,9 @@
                     "Native\\Mobile\\Edge\\Web\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -3984,11 +3987,25 @@
                 }
             ],
             "description": "EDGE web render target for NativePHP — the same screens as HTML in a browser",
+            "keywords": [
+                "SSR",
+                "edge",
+                "laravel",
+                "mobile",
+                "nativephp",
+                "web"
+            ],
             "support": {
-                "source": "https://github.com/NativePHP/web-ui/tree/main",
-                "issues": "https://github.com/NativePHP/web-ui/issues"
+                "issues": "https://github.com/NativePHP/web-ui/issues",
+                "source": "https://github.com/NativePHP/web-ui/tree/0.0.1-alpha"
             },
-            "time": "2026-09-10T21:58:03+00:00"
+            "funding": [
+                {
+                    "url": "https://nativephp.com/sponsor",
+                    "type": "other"
+                }
+            ],
+            "time": "2026-09-12T13:50:53+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -12869,12 +12886,12 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "nativephp/mobile-web": 20
+        "nativephp/web-ui": 15
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.3"
+        "php": "^8.4"
     },
     "platform-dev": {},
     "plugin-api-version": "2.9.0"

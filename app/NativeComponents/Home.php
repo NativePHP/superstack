@@ -20,7 +20,7 @@ class Home extends NativeComponent
                 'Laravel' => \Illuminate\Foundation\Application::VERSION,
                 'Filament' => \Composer\InstalledVersions::getPrettyVersion('filament/filament'),
                 'NativePHP Mobile' => \Composer\InstalledVersions::getPrettyVersion('nativephp/mobile'),
-                'Web UI' => \Composer\InstalledVersions::getPrettyVersion('nativephp/mobile-web'),
+                'Web UI' => \Composer\InstalledVersions::getPrettyVersion('nativephp/web-ui'),
                 'Laravel MCP' => \Composer\InstalledVersions::getPrettyVersion('laravel/mcp'),
             ],
         ]);

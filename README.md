@@ -8,12 +8,15 @@ Open-source Laravel starter kit with **Filament**, **NativePHP SuperNative**, an
 | --- | --- |
 | Laravel | `laravel/framework` |
 | Admin | `filament/filament` (panel at `/admin`) |
+| API auth | `laravel/sanctum` |
 | Mobile / SuperNative | `nativephp/mobile` |
+| Native UI | `nativephp/mobile-ui` |
+| Web UI (browser EDGE) | `nativephp/mobile-web` (VCS: [nativephp/web-ui](https://github.com/NativePHP/web-ui)) |
 | MCP server | `laravel/mcp` |
 
 ## Requirements
 
-- PHP 8.3+ (Herd recommended)
+- PHP 8.4+ (Herd recommended)
 - Composer
 - Node (optional, for Vite)
 - Xcode / Android Studio for native runs
@@ -31,12 +34,13 @@ php artisan migrate
 php artisan make:filament-user
 
 # NativePHP (already installed in this kit; re-run after upgrades)
-# php artisan native:install both --with-icu --no-interaction
+php artisan native:install both --no-interaction
 ```
 
 With Laravel Herd, the site is available at [http://superstack.test](http://superstack.test).
 
-Admin panel: [http://superstack.test/admin](http://superstack.test/admin)
+- Admin panel: [http://superstack.test/admin](http://superstack.test/admin)
+- API: Sanctum is installed (`/api` routes in `routes/api.php`)
 
 ## MCP
 

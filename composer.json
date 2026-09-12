@@ -1,14 +1,33 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "nativephp/superstack",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "Super Stack \u2014 open-source Laravel starter with Filament, NativePHP SuperNative, and MCP",
+    "keywords": [
+        "laravel",
+        "filament",
+        "nativephp",
+        "mcp",
+        "superstack",
+        "starter-kit"
+    ],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/nativephp/web-ui"
+        }
+    ],
     "require": {
         "php": "^8.3",
+        "filament/filament": "^5.0",
         "laravel/framework": "^13.17",
-        "laravel/tinker": "^3.0"
+        "laravel/mcp": "^0.9.5",
+        "laravel/sanctum": "^4.0",
+        "laravel/tinker": "^3.0",
+        "nativephp/mobile": "^4.4",
+        "nativephp/mobile-ui": "^0.4.0",
+        "nativephp/mobile-web": "@dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -52,7 +71,8 @@
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan filament:upgrade"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
@@ -83,6 +103,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }

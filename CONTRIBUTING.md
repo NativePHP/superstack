@@ -4,12 +4,20 @@ Thanks for helping with Super Stack.
 
 ## Setup
 
-1. Clone the repo and `composer install`
-2. Copy `.env.example` to `.env`, run `php artisan key:generate`, then `php artisan migrate`
-3. Create an admin user via the [Filament docs](https://filamentphp.com/docs/panels/installation#creating-a-user)
-4. For native work, follow [NativePHP Mobile v4](https://nativephp.com/docs/mobile/4/getting-started/installation) (`php artisan native:install`, then `php artisan native:run`)
+Prefer a fresh app from the kit:
 
-Herd tip: the app should be available at `http://superstack.test`.
+```bash
+laravel new my-app --using=nativephp/superstack
+```
+
+Or in Laravel Herd’s site wizard, pick a **community / custom starter kit** and enter `nativephp/superstack`.
+
+For contributors working on this repo itself: clone, `composer install`, copy `.env.example`, `php artisan key:generate`, then `php artisan migrate`.
+
+1. Create an admin user via the [Filament docs](https://filamentphp.com/docs/panels/installation#creating-a-user)
+2. For native work, follow [NativePHP Mobile v4](https://nativephp.com/docs/mobile/4/getting-started/installation) (`php artisan native:install`, then `php artisan native:run`)
+
+Herd tip: the site is `http://my-app.test` (or your project name).
 
 ## What belongs where
 

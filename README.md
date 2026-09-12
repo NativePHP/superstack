@@ -27,20 +27,28 @@ Open-source Laravel starter kit with **Filament**, **NativePHP SuperNative**, an
 
 ## Quick start
 
-```bash
-composer install
-cp .env.example .env
-php artisan key:generate
-# sqlite is default; touch database/database.sqlite if needed
-php artisan migrate
+### Laravel installer
 
-# NativePHP (already installed in this kit; re-run after upgrades)
+```bash
+laravel new my-app --using=nativephp/superstack
+```
+
+### Laravel Herd
+
+In Herd’s site creation wizard, choose a **community / custom starter kit** and enter `nativephp/superstack`.
+
+### After create
+
+```bash
+cd my-app
+php artisan migrate
+# NativePHP (re-run after upgrades)
 php artisan native:install both --no-interaction
 ```
 
 Create a Filament admin user with the [Filament installation docs](https://filamentphp.com/docs/panels/installation#creating-a-user) (`php artisan make:filament-user`).
 
-With Laravel Herd, the site is available at [http://superstack.test](http://superstack.test).
+With Laravel Herd, the site is available at `http://my-app.test` (or whatever you named the project).
 
 - Home (SuperNative via Web UI): [http://superstack.test](http://superstack.test)
 - Admin panel: [http://superstack.test/admin](http://superstack.test/admin)

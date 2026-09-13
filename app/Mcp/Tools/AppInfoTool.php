@@ -2,7 +2,9 @@
 
 namespace App\Mcp\Tools;
 
+use Composer\InstalledVersions;
 use Illuminate\Contracts\JsonSchema\JsonSchema;
+use Illuminate\Foundation\Application;
 use Illuminate\JsonSchema\Types\Type;
 use Laravel\Mcp\Request;
 use Laravel\Mcp\Response;
@@ -20,10 +22,10 @@ class AppInfoTool extends Tool
     public function handle(Request $request): Response
     {
         $packages = [
-            'laravel/framework' => \Illuminate\Foundation\Application::VERSION,
-            'filament/filament' => \Composer\InstalledVersions::getPrettyVersion('filament/filament'),
-            'nativephp/mobile' => \Composer\InstalledVersions::getPrettyVersion('nativephp/mobile'),
-            'laravel/mcp' => \Composer\InstalledVersions::getPrettyVersion('laravel/mcp'),
+            'laravel/framework' => Application::VERSION,
+            'filament/filament' => InstalledVersions::getPrettyVersion('filament/filament'),
+            'nativephp/mobile' => InstalledVersions::getPrettyVersion('nativephp/mobile'),
+            'laravel/mcp' => InstalledVersions::getPrettyVersion('laravel/mcp'),
         ];
 
         $lines = [

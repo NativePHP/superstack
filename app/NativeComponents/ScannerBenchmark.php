@@ -3,8 +3,10 @@
 namespace App\NativeComponents;
 
 use Illuminate\View\View;
+use Native\Mobile\Attributes\OnNative;
 use Native\Mobile\Edge\NativeComponent;
-use Native\Mobile\Facades\Scanner;
+use Sandip\Scanner\Native\Events\Scanner\CodeScanned;
+use Sandip\Scanner\Native\Facades\Scanner;
 
 class ScannerBenchmark extends NativeComponent
 {
@@ -39,34 +41,35 @@ class ScannerBenchmark extends NativeComponent
             ->id($sessionId)
             ->prompt('Scan the benchmark code')
             ->continuous()
-            ->formats(['qr'])
-            ->codeScanned(function ($event) use ($sessionId): void {
-                $phpStartedAt = microtime(true);
-                $this->totalScans++;
-                $this->lastValue = $event->data;
-                $this->lastFormat = $event->format;
-                $this->lastBridgeToPhpMs = $this->scanRequestedAt === null
-                    ? null
-                    : round((microtime(true) - $this->scanRequestedAt) * 1000, 3);
-
-                if (! isset($this->seen[$event->data])) {
-                    $this->seen[$event->data] = true;
-                    $this->uniqueScans++;
-                }
-
-                $this->lastPhpMs = round((microtime(true) - $phpStartedAt) * 1000, 3);
-
-                logger()->info('scanner_benchmark.scan', [
-                    'session_id' => $sessionId,
-                    'value_sha256' => hash('sha256', $event->data),
-                    'format' => $event->format,
-                    'total_scans' => $this->totalScans,
-                    'unique_scans' => $this->uniqueScans,
-                    'bridge_to_php_ms' => $this->lastBridgeToPhpMs,
-                    'php_ms' => $this->lastPhpMs,
-                ]);
-            })
             ->scan();
+    }
+
+    #[OnNative(CodeScanned::class)]
+    public function codeScanned(CodeScanned $event): void
+    {
+        $phpStartedAt = microtime(true);
+        $this->totalScans++;
+        $this->lastValue = $event->data;
+        $this->lastFormat = $event->format;
+        $this->lastBridgeToPhpMs = $this->scanRequestedAt === null
+            ? null
+            : round((microtime(true) - $this->scanRequestedAt) * 1000, 3);
+
+        if (! isset($this->seen[$event->data])) {
+            $this->seen[$event->data] = true;
+            $this->uniqueScans++;
+        }
+
+        $this->lastPhpMs = round((microtime(true) - $phpStartedAt) * 1000, 3);
+
+        logger()->info('scanner_benchmark.scan', [
+            'value_sha256' => hash('sha256', $event->data),
+            'format' => $event->format,
+            'total_scans' => $this->totalScans,
+            'unique_scans' => $this->uniqueScans,
+            'bridge_to_php_ms' => $this->lastBridgeToPhpMs,
+            'php_ms' => $this->lastPhpMs,
+        ]);
     }
 
     public function reset(): void

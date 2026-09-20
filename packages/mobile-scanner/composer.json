@@ -1,0 +1,48 @@
+{
+    "name": "sghimire/mobile-scanner",
+    "version": "1.0.3",
+    "description": "Self-contained native QR/barcode scanner (CameraX + ML Kit / AVFoundation) for NativePHP Mobile — own facade, fluent multi-format API, events, and JS bindings, with no dependency on the paid nativephp/mobile-scanner plugin.",
+    "type": "nativephp-plugin",
+    "keywords": ["nativephp", "scanner", "qr-code", "barcode", "camera", "laravel", "mobile"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sandip Ghimire",
+            "email": "sandipghimire2076@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "nativephp/mobile": "^3.0|^4.0"
+    },
+    "suggest": {
+        "livewire/livewire": "Required only if you use the #[OnNative] attribute to bind scanner events directly to component methods."
+    },
+    "autoload": {
+        "psr-4": {
+            "Sandip\\Scanner\\Native\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sandip\\Scanner\\Native\\ScannerServiceProvider"
+            ]
+        },
+        "nativephp": {
+            "manifest": "nativephp.json"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^3.0",
+        "laravel/pint": "^1.29"
+    },
+    "scripts": {
+        "test": "pest"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}

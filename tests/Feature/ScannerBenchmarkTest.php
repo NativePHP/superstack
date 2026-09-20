@@ -12,14 +12,13 @@ it('renders the scanner benchmark screen', function () {
 it('starts a continuous QR scan with an explicit session id', function () {
     $screen = Native::test(ScannerBenchmark::class)
         ->call('startScanner')
-        ->assertNativeCalled('Scanner.Scan');
+        ->assertNativeCalled('MobileScanner.Scan');
 
-    $call = $screen->bridge()->callsTo('Scanner.Scan')[0]['params'];
+    $call = $screen->bridge()->callsTo('MobileScanner.Scan')[0]['params'];
 
     expect($call['continuous'])->toBeTrue()
         ->and($call['formats'])->toBe(['qr'])
-        ->and($call['id'])->toStartWith('benchmark-')
-        ->and($call['event'])->toBe('Native\\Mobile\\Events\\Scanner\\CodeScanned');
+        ->and($call['id'])->toStartWith('benchmark-');
 });
 
 it('resets all displayed measurements', function () {

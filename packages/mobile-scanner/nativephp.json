@@ -1,0 +1,87 @@
+{
+    "name": "sghimire/mobile-scanner",
+    "version": "1.0.0",
+    "description": "Native QR/barcode scanner (CameraX + ML Kit / AVFoundation), free alternative to the paid nativephp/mobile-scanner plugin. Ships its own facade, fluent multi-format scan builder, events, and JS bindings.",
+    "namespace": "Scanner",
+    "keywords": ["scanner", "qr-code", "barcode", "camera"],
+    "category": "media",
+    "license": "MIT",
+    "pricing": {
+        "type": "free"
+    },
+    "author": {
+        "name": "Sandip Ghimire",
+        "email": "sandipghimire2076@gmail.com",
+        "url": ""
+    },
+    "homepage": "",
+    "repository": "",
+    "funding": [],
+    "platforms": [
+        "android",
+        "ios"
+    ],
+    "icon": "resources/icon.png",
+    "screenshots": [],
+    "bridge_functions": [
+        {
+            "name": "MobileScanner.Scan",
+            "android": "com.sandip.plugins.scanner.ScannerFunctions.Scan",
+            "ios": "ScannerFunctions.Scan",
+            "description": "Present a full-screen native camera scanner for one or more barcode formats. Unless disabled via allowGallery=false, the overlay includes a gallery button that lets the user pick a photo instead of using the live camera; the picked image is decoded on-device for the same requested formats. Returns immediately once the UI is shown; results (from the camera, continuous re-scans, or a gallery pick) arrive later via the CodeScanned event, and closing without a match fires Cancelled."
+        },
+        {
+            "name": "MobileScanner.Stop",
+            "android": "com.sandip.plugins.scanner.ScannerFunctions.Stop",
+            "ios": "ScannerFunctions.Stop",
+            "description": "Programmatically dismiss the currently open scanner (e.g. a continuous session), as if the user tapped close. Fires Cancelled with reason 'stopped_by_app'."
+        }
+    ],
+    "android": {
+        "min_version": 23,
+        "permissions": [
+            "android.permission.CAMERA",
+            "android.permission.VIBRATE"
+        ],
+        "repositories": [],
+        "dependencies": {
+            "implementation": [
+                "androidx.camera:camera-core:1.3.4",
+                "androidx.camera:camera-camera2:1.3.4",
+                "androidx.camera:camera-lifecycle:1.3.4",
+                "androidx.camera:camera-view:1.3.4",
+                "androidx.activity:activity-ktx:1.9.3",
+                "com.google.mlkit:barcode-scanning:17.3.0"
+            ]
+        },
+        "activities": [],
+        "services": [],
+        "receivers": [],
+        "providers": []
+    },
+    "ios": {
+        "min_version": "15.0",
+        "permissions": [],
+        "info_plist": {
+            "NSCameraUsageDescription": "Used to scan QR codes and barcodes."
+        },
+        "repositories": [],
+        "dependencies": {
+            "swift_packages": [],
+            "pods": []
+        }
+    },
+    "assets": {
+        "android": [],
+        "ios": []
+    },
+    "secrets": [],
+    "events": [
+        "Sandip\\Scanner\\Native\\Events\\Scanner\\CodeScanned",
+        "Sandip\\Scanner\\Native\\Events\\Scanner\\Cancelled"
+    ],
+    "service_provider": "Sandip\\Scanner\\Native\\ScannerServiceProvider",
+    "hooks": {
+        "copy_assets": "nativephp:mobile-scanner:copy-assets"
+    }
+}

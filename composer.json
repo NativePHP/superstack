@@ -19,9 +19,10 @@
         "laravel/mcp": "^0.9.5",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^3.0",
-        "nativephp/mobile": "^4.4",
+        "nativephp/mobile": "4.4.0",
         "nativephp/mobile-ui": "^0.4.0",
-        "nativephp/web-ui": "^0.0.1@alpha"
+        "nativephp/web-ui": "^0.0.1@alpha",
+        "sghimire/mobile-scanner": "1.0.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -86,6 +87,15 @@
     "extra": {
         "laravel": []
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/mobile-scanner",
+            "options": {
+                "symlink": false
+            }
+        }
+    ],
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",

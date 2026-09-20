@@ -1,6 +1,7 @@
 <?php
 
 use App\NativeComponents\Home;
+use App\NativeComponents\ScannerBenchmark;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::native('/', Home::class)->name('home');
+Route::native('/scanner-benchmark', ScannerBenchmark::class)->name('scanner-benchmark');

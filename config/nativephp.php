@@ -269,7 +269,6 @@ return [
         'app/Providers/Filament',
         'app/Mcp',
         'routes/ai.php',
-        'routes/api.php',
         'config/sanctum.php',
         'public/css/filament',
         'public/js/filament',

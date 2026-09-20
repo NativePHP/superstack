@@ -35,5 +35,7 @@
                 </row>
             </column>
         </column>
+
+        <button label="Open scanner benchmark" @tap="openScannerBenchmark" />
     </column>
 </scroll-view>

@@ -17,8 +17,16 @@ test('admin login page renders successfully', function () {
     $response->assertOk();
 });
 
-test('authenticated users can access admin dashboard in local environment', function () {
-    config(['app.env' => 'local']);
+test('authenticated users can access the admin dashboard', function () {
+    $user = User::factory()->create();
+
+    $response = $this->actingAs($user)->get('/admin');
+
+    $response->assertOk();
+});
+
+test('admin access does not depend on the local environment', function () {
+    config(['app.env' => 'production']);
 
     $user = User::factory()->create();
 

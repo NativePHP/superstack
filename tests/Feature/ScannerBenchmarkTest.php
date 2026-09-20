@@ -2,6 +2,7 @@
 
 use App\NativeComponents\ScannerBenchmark;
 use Native\Mobile\Testing\Native;
+use Sandip\Scanner\Native\Events\Scanner\CodeScanned;
 
 it('renders the scanner benchmark screen', function () {
     Native::test(ScannerBenchmark::class)
@@ -29,4 +30,16 @@ it('resets all displayed measurements', function () {
         ->assertSet('totalScans', 0)
         ->assertSet('uniqueScans', 0)
         ->assertSet('lastValue', null);
+});
+
+it('records native scan events and deduplicates repeated values', function () {
+    $screen = Native::test(ScannerBenchmark::class)
+        ->call('codeScanned', new CodeScanned('nativephp-benchmark-001', 'qr'))
+        ->call('codeScanned', new CodeScanned('nativephp-benchmark-001', 'qr'));
+
+    $screen
+        ->assertSet('totalScans', 2)
+        ->assertSet('uniqueScans', 1)
+        ->assertSet('lastValue', 'nativephp-benchmark-001')
+        ->assertSet('lastFormat', 'qr');
 });

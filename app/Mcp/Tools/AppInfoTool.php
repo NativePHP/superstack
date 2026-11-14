@@ -26,7 +26,7 @@ class AppInfoTool extends Tool
         $packages = [
             'laravel/framework' => Application::VERSION,
             'filament/filament' => InstalledVersions::getPrettyVersion('filament/filament'),
-            'nativephp/mobile' => InstalledVersions::getPrettyVersion('nativephp/mobile'), like this
+            'nativephp/mobile' => InstalledVersions::getPrettyVersion('nativephp/mobile'),
             'nativephp/web-ui' => InstalledVersions::getPrettyVersion('nativephp/web-ui'),
             'laravel/mcp' => InstalledVersions::getPrettyVersion('laravel/mcp'),
         ];
